@@ -1,0 +1,29 @@
+{
+  "siteName": "神山まるごと高等専門学校",
+  "siteShort": "神山まるごと高専",
+  "tagline": "テクノロジー × デザイン × 起業家精神を、徳島の山あいで学ぶ。",
+  "description": "徳島県神山町にある私立高等専門学校「神山まるごと高等専門学校」の非公式紹介サイト。学校概要・教育・キャンパス・アクセス・お問い合わせをまとめています。",
+  "nav": {
+    "home": "ホーム",
+    "about": "概要",
+    "education": "教育",
+    "campus": "キャンパス",
+    "access": "アクセス",
+    "contact": "お問い合わせ"
+  },
+  "cta": {
+    "explore": "学校を知る",
+    "contact": "お問い合わせ",
+    "viewMore": "詳しく見る",
+    "backHome": "ホームへ戻る"
+  },
+  "footer": {
+    "rights": "本サイトは学校公式ではない非公式の紹介ページです。",
+    "officialLabel": "公式サイト",
+    "imageCredit": "画像クレジット: Unsplash"
+  },
+  "lang": {
+    "switch": "EN",
+    "current": "日本語"
+  }
+}

@@ -1,0 +1,30 @@
+---
+interface Props {
+  /** OpenStreetMap bounding box: minLon,minLat,maxLon,maxLat */
+  bbox?: string;
+  /** marker lat,lon */
+  marker?: string;
+  title?: string;
+}
+const {
+  // 神山町中心付近 (おおよそ)
+  bbox = '134.30,33.95,134.40,34.00',
+  marker = '33.97,134.35',
+  title = 'Map',
+} = Astro.props;
+
+const src = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${marker}`;
+---
+
+<div class="overflow-hidden border border-beige-200">
+  <iframe
+    src={src}
+    title={title}
+    loading="lazy"
+    class="block h-[420px] w-full grayscale-[30%]"
+    referrerpolicy="no-referrer-when-downgrade"
+  ></iframe>
+</div>
+<p class="mt-2 text-xs text-ink-mute">
+  &copy; <a class="link-underline" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors
+</p>

@@ -1,0 +1,87 @@
+---
+import { useTranslations, localizedPath, type Locale } from '../i18n';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  locale: Locale;
+  pathname: string;
+}
+
+const { locale, pathname } = Astro.props;
+const t = useTranslations(locale);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const navItems = [
+  { key: 'about', href: '/about/' },
+  { key: 'education', href: '/education/' },
+  { key: 'campus', href: '/campus/' },
+  { key: 'access', href: '/access/' },
+  { key: 'contact', href: '/contact/' },
+] as const;
+
+function withBase(p: string) {
+  return `${base}${localizedPath(locale, p)}`;
+}
+
+function isActive(href: string) {
+  const normCurrent = pathname.replace(/\/$/, '') || '/';
+  const target = localizedPath(locale, href).replace(/\/$/, '') || '/';
+  return normCurrent === target;
+}
+---
+
+<header class="sticky top-0 z-30 border-b border-beige-200 bg-paper/85 backdrop-blur">
+  <div class="container-wide flex h-16 items-center justify-between">
+    <a
+      href={withBase('/')}
+      class="font-serif text-base tracking-tightj text-ink hover:text-accent-dark transition-colors"
+    >
+      <span class="block leading-none">{t.siteShort}</span>
+      <span class="mt-0.5 block font-en text-[10px] uppercase tracking-wider2 text-ink-mute">
+        Kamiyama College
+      </span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-7 text-sm">
+      {
+        navItems.map((item) => (
+          <a
+            href={withBase(item.href)}
+            class:list={[
+              'link-underline transition-colors',
+              isActive(item.href) ? 'text-ink' : 'text-ink-soft hover:text-ink',
+            ]}
+          >
+            {t.nav[item.key]}
+          </a>
+        ))
+      }
+      <LanguageSwitcher locale={locale} pathname={pathname} />
+    </nav>
+
+    <div class="md:hidden">
+      <LanguageSwitcher locale={locale} pathname={pathname} />
+    </div>
+  </div>
+
+  <!-- mobile nav -->
+  <nav class="md:hidden border-t border-beige-200 bg-paper">
+    <ul class="container-wide flex flex-wrap gap-x-5 gap-y-2 py-3 text-sm">
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              href={withBase(item.href)}
+              class:list={[
+                'transition-colors',
+                isActive(item.href) ? 'text-ink' : 'text-ink-mute hover:text-ink',
+              ]}
+            >
+              {t.nav[item.key]}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

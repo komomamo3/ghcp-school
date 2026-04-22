@@ -1,0 +1,22 @@
+---
+import { alternateLocalePath, useTranslations, type Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  pathname: string;
+}
+
+const { locale, pathname } = Astro.props;
+const t = useTranslations(locale);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const targetPath = alternateLocalePath(pathname, locale);
+const href = `${base}${targetPath}`;
+---
+
+<a
+  href={href}
+  class="inline-flex items-center gap-1 border border-beige-200 px-3 py-1.5 font-en text-xs uppercase tracking-wider2 text-ink-soft transition-colors hover:border-ink hover:text-ink"
+  aria-label={`Switch language to ${t.lang.switch}`}
+>
+  {t.lang.switch}
+</a>

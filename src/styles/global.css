@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: light; }
+  html {
+    font-family: theme('fontFamily.sans');
+    color: theme('colors.ink.DEFAULT');
+    background-color: theme('colors.paper');
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-paper text-ink;
+    font-feature-settings: 'palt' 1, 'pkna' 1;
+  }
+  ::selection { background-color: theme('colors.beige.200'); color: theme('colors.ink.DEFAULT'); }
+  h1, h2, h3, h4 { @apply font-serif text-ink; font-feature-settings: 'palt' 1; }
+  .fade-up { animation: fadeUp 0.8s ease both; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@layer components {
+  .container-wide { @apply container; max-width: 1200px; }
+  .hairline { @apply border-t border-beige-200; }
+  .eyebrow { @apply font-en text-xs uppercase tracking-wider2 text-ink-mute; }
+
+  .link-underline { @apply relative inline-block; }
+  .link-underline::after {
+    content: '';
+    @apply absolute left-0 -bottom-0.5 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-300;
+  }
+  .link-underline:hover::after { @apply scale-x-100; }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 border border-ink/80 px-5 py-2.5 text-sm tracking-widej transition-colors hover:bg-ink hover:text-paper;
+  }
+}
