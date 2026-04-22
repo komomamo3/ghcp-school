@@ -6,13 +6,18 @@ interface Props {
   /** Background image URL (Unsplash etc.) */
   image?: string;
   imageAlt?: string;
+  /** Loading strategy — use 'eager' only for above-the-fold heroes */
+  imageLoading?: 'eager' | 'lazy';
 }
+const DEFAULT_IMAGE =
+  'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=70';
 const {
   eyebrow,
   title,
   lead,
-  image = 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2400&q=80',
+  image = DEFAULT_IMAGE,
   imageAlt = '',
+  imageLoading = 'eager',
 } = Astro.props;
 ---
 
@@ -22,7 +27,7 @@ const {
       src={image}
       alt={imageAlt}
       class="h-full w-full object-cover grayscale-[35%] brightness-[0.85]"
-      loading="eager"
+      loading={imageLoading}
       decoding="async"
     />
     <div class="absolute inset-0 bg-gradient-to-b from-paper/30 via-paper/10 to-paper"></div>

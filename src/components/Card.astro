@@ -4,10 +4,12 @@ interface Props {
   title: string;
   body?: string;
   href?: string;
+  /** Label for the "read more" affordance. Defaults to English; pass a localised string from the page. */
+  linkLabel?: string;
   image?: string;
   imageAlt?: string;
 }
-const { eyebrow, title, body, href, image, imageAlt = '' } = Astro.props;
+const { eyebrow, title, body, href, linkLabel = 'Read more →', image, imageAlt = '' } = Astro.props;
 
 const Tag = href ? 'a' : 'div';
 ---
@@ -36,7 +38,7 @@ const Tag = href ? 'a' : 'div';
     {body && <p class="text-sm leading-relaxed text-ink-soft">{body}</p>}
     {href && (
       <span class="mt-2 font-en text-xs uppercase tracking-wider2 text-ink-mute group-hover:text-ink">
-        Read more →
+        {linkLabel}
       </span>
     )}
   </div>

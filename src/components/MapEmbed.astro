@@ -6,14 +6,26 @@ interface Props {
   marker?: string;
   title?: string;
 }
+
+const DECIMAL = '[-+]?\\d+(?:\\.\\d+)?';
+const BBOX_RE = new RegExp(`^${DECIMAL},${DECIMAL},${DECIMAL},${DECIMAL}$`);
+const MARKER_RE = new RegExp(`^${DECIMAL},${DECIMAL}$`);
+
+const DEFAULT_BBOX = '134.30,33.95,134.40,34.00';
+const DEFAULT_MARKER = '33.97,134.35';
+
 const {
-  // 神山町中心付近 (おおよそ)
-  bbox = '134.30,33.95,134.40,34.00',
-  marker = '33.97,134.35',
+  bbox: rawBbox = DEFAULT_BBOX,
+  marker: rawMarker = DEFAULT_MARKER,
   title = 'Map',
 } = Astro.props;
 
-const src = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${marker}`;
+// Validate and fall back to safe defaults to prevent malformed URLs
+const safeBbox = BBOX_RE.test(rawBbox) ? rawBbox : DEFAULT_BBOX;
+const safeMarker = MARKER_RE.test(rawMarker) ? rawMarker : DEFAULT_MARKER;
+
+const params = new URLSearchParams({ bbox: safeBbox, layer: 'mapnik', marker: safeMarker });
+const src = `https://www.openstreetmap.org/export/embed.html?${params.toString()}`;
 ---
 
 <div class="overflow-hidden border border-beige-200">
