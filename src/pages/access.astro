@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import MapEmbed from '../components/MapEmbed.astro';
+
+const locale = 'ja' as const;
+const pathname = '/access/';
+---
+
+<BaseLayout pathname={pathname} locale={locale} title="アクセス">
+  <section class="container-wide pt-28 pb-12">
+    <span class="eyebrow">Access</span>
+    <h1 class="mt-4 font-serif text-4xl leading-tight tracking-tightj text-ink md:text-5xl">
+      徳島・神山町へ。
+    </h1>
+    <p class="mt-6 max-w-prose text-base leading-loose text-ink-soft">
+      徳島県の中央部、徳島市の西側に位置する神山町。
+      徳島阿波おどり空港 / JR徳島駅から、車またはバスでおよそ50〜60分が目安です。
+    </p>
+  </section>
+
+  <section class="container-wide py-12">
+    <SectionTitle eyebrow="Map" title="所在地" />
+    <div class="mt-10 grid gap-10 md:grid-cols-12">
+      <div class="md:col-span-7">
+        <MapEmbed title="神山町周辺の地図" />
+      </div>
+      <dl class="md:col-span-5 space-y-6">
+        <div class="border-t border-beige-200 pt-4">
+          <dt class="text-xs uppercase tracking-wider2 text-ink-mute">所在地</dt>
+          <dd class="mt-1 text-base text-ink">徳島県名西郡神山町</dd>
+        </div>
+        <div class="border-t border-beige-200 pt-4">
+          <dt class="text-xs uppercase tracking-wider2 text-ink-mute">飛行機で</dt>
+          <dd class="mt-1 text-sm text-ink-soft">徳島阿波おどり空港から車で約60分</dd>
+        </div>
+        <div class="border-t border-beige-200 pt-4">
+          <dt class="text-xs uppercase tracking-wider2 text-ink-mute">電車で</dt>
+          <dd class="mt-1 text-sm text-ink-soft">JR徳島駅から路線バスで約60分</dd>
+        </div>
+        <div class="border-t border-beige-200 pt-4">
+          <dt class="text-xs uppercase tracking-wider2 text-ink-mute">車で</dt>
+          <dd class="mt-1 text-sm text-ink-soft">徳島ICから一般道で約45分</dd>
+        </div>
+        <p class="pt-4 text-xs text-ink-mute">
+          ※ アクセス所要時間は目安です。正確な訪問先・所在地住所は
+          <a class="link-underline" href="https://kamiyama.ac.jp/" target="_blank" rel="noopener noreferrer">
+            公式サイト
+          </a>
+          をご確認ください。
+        </p>
+      </dl>
+    </div>
+  </section>
+</BaseLayout>

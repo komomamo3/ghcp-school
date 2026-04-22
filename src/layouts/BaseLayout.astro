@@ -1,0 +1,57 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { useTranslations, type Locale } from '../i18n';
+
+interface Props {
+  title?: string;
+  description?: string;
+  locale?: Locale;
+  /** path WITHOUT the Astro `base`, e.g. "/about/" or "/en/about/" */
+  pathname: string;
+}
+
+const { title, description, locale = 'ja', pathname } = Astro.props;
+const t = useTranslations(locale);
+
+const fullTitle = title ? `${title} | ${t.siteName}` : t.siteName;
+const desc = description ?? t.description;
+
+const siteOrigin = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
+const canonical = `${siteOrigin}${base}${pathname}`;
+---
+
+<!doctype html>
+<html lang={locale === 'ja' ? 'ja' : 'en'}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap"
+    />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header locale={locale} pathname={pathname} />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+  </body>
+</html>

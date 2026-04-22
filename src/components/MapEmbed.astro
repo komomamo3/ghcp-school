@@ -1,0 +1,42 @@
+---
+interface Props {
+  /** OpenStreetMap bounding box: minLon,minLat,maxLon,maxLat */
+  bbox?: string;
+  /** marker lat,lon */
+  marker?: string;
+  title?: string;
+}
+
+const DECIMAL = '[-+]?\\d+(?:\\.\\d+)?';
+const BBOX_RE = new RegExp(`^${DECIMAL},${DECIMAL},${DECIMAL},${DECIMAL}$`);
+const MARKER_RE = new RegExp(`^${DECIMAL},${DECIMAL}$`);
+
+const DEFAULT_BBOX = '134.30,33.95,134.40,34.00';
+const DEFAULT_MARKER = '33.97,134.35';
+
+const {
+  bbox: rawBbox = DEFAULT_BBOX,
+  marker: rawMarker = DEFAULT_MARKER,
+  title = 'Map',
+} = Astro.props;
+
+// Validate and fall back to safe defaults to prevent malformed URLs
+const safeBbox = BBOX_RE.test(rawBbox) ? rawBbox : DEFAULT_BBOX;
+const safeMarker = MARKER_RE.test(rawMarker) ? rawMarker : DEFAULT_MARKER;
+
+const params = new URLSearchParams({ bbox: safeBbox, layer: 'mapnik', marker: safeMarker });
+const src = `https://www.openstreetmap.org/export/embed.html?${params.toString()}`;
+---
+
+<div class="overflow-hidden border border-beige-200">
+  <iframe
+    src={src}
+    title={title}
+    loading="lazy"
+    class="block h-[420px] w-full grayscale-[30%]"
+    referrerpolicy="no-referrer-when-downgrade"
+  ></iframe>
+</div>
+<p class="mt-2 text-xs text-ink-mute">
+  &copy; <a class="link-underline" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors
+</p>

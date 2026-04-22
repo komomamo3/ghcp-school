@@ -1,0 +1,54 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead?: string;
+  /** Background image URL (Unsplash etc.) */
+  image?: string;
+  imageAlt?: string;
+  /** Loading strategy — use 'eager' only for above-the-fold heroes */
+  imageLoading?: 'eager' | 'lazy';
+}
+const DEFAULT_IMAGE =
+  'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=70';
+const {
+  eyebrow,
+  title,
+  lead,
+  image = DEFAULT_IMAGE,
+  imageAlt = '',
+  imageLoading = 'eager',
+} = Astro.props;
+---
+
+<section class="relative isolate overflow-hidden">
+  <div class="absolute inset-0 -z-10">
+    <img
+      src={image}
+      alt={imageAlt}
+      class="h-full w-full object-cover grayscale-[35%] brightness-[0.85]"
+      loading={imageLoading}
+      decoding="async"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-paper/30 via-paper/10 to-paper"></div>
+  </div>
+
+  <div class="container-wide flex min-h-[78vh] flex-col justify-end pb-20 pt-32 md:min-h-[88vh]">
+    <div class="max-w-3xl fade-up">
+      {eyebrow && <p class="eyebrow text-paper/90 mix-blend-difference">{eyebrow}</p>}
+      <h1
+        class="mt-4 font-serif text-4xl leading-[1.15] tracking-tightj text-ink md:text-6xl"
+      >
+        {title}
+      </h1>
+      {lead && (
+        <p class="mt-6 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
+          {lead}
+        </p>
+      )}
+      <div class="mt-10 flex flex-wrap gap-3">
+        <slot name="cta" />
+      </div>
+    </div>
+  </div>
+</section>

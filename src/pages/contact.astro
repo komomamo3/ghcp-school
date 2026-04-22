@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+
+const locale = 'ja' as const;
+const pathname = '/contact/';
+
+const inquiryEmail = 'hello@example.com';
+const subject = encodeURIComponent('[ghcp-school] お問い合わせ');
+const body = encodeURIComponent(
+  '以下の項目をご記入のうえ送信してください。\n\n' +
+    '― お名前:\n― ご所属:\n― お問い合わせ種別 (例: 学校見学 / 取材 / 進学相談 / その他):\n― 内容:\n',
+);
+const mailto = `mailto:${inquiryEmail}?subject=${subject}&body=${body}`;
+---
+
+<BaseLayout pathname={pathname} locale={locale} title="お問い合わせ">
+  <section class="container-wide pt-28 pb-12">
+    <span class="eyebrow">Contact</span>
+    <h1 class="mt-4 font-serif text-4xl leading-tight tracking-tightj text-ink md:text-5xl">
+      お問い合わせ
+    </h1>
+    <p class="mt-6 max-w-prose text-base leading-loose text-ink-soft">
+      本サイトおよび紹介内容に関するご連絡は、以下のメールアドレスまでお願いします。
+      入学や学校運営に関する公式なお問い合わせは、
+      <a class="link-underline" href="https://kamiyama.ac.jp/" target="_blank" rel="noopener noreferrer">公式サイト</a>
+      の窓口をご利用ください。
+    </p>
+  </section>
+
+  <section class="container-wide py-12">
+    <SectionTitle eyebrow="Email" title="メールでのお問い合わせ" />
+    <div class="mt-10 border border-beige-200 p-8 md:p-12">
+      <p class="text-sm leading-relaxed text-ink-soft">
+        下記ボタンから、件名・本文テンプレート入りのメールを開けます。
+        ご記入のうえ送信してください。
+      </p>
+      <div class="mt-6 flex flex-wrap items-center gap-4">
+        <a class="btn-ghost" href={mailto}>メールを書く →</a>
+        <code class="text-sm text-ink-mute">{inquiryEmail}</code>
+      </div>
+      <p class="mt-6 text-xs text-ink-mute">
+        ※ 上記アドレスはサンプルです。実運用時は公開先のアドレスに差し替えてください。
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-beige-50">
+    <div class="container-wide py-20">
+      <SectionTitle eyebrow="Categories" title="想定するお問い合わせ" />
+      <ul class="mt-10 grid gap-6 md:grid-cols-2">
+        <li class="border border-beige-200 bg-paper p-8">
+          <h3 class="font-serif text-xl">本サイトについて</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+            掲載内容の修正提案、誤りのご指摘、表現に関するご相談など。
+          </p>
+        </li>
+        <li class="border border-beige-200 bg-paper p-8">
+          <h3 class="font-serif text-xl">取材・メディア掲載</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+            紹介記事への引用、画像・テキストの利用相談など。
+          </p>
+        </li>
+        <li class="border border-beige-200 bg-paper p-8">
+          <h3 class="font-serif text-xl">進学に関する相談</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+            正式な入試情報・募集要項は、必ず公式サイトをご確認ください。
+          </p>
+        </li>
+        <li class="border border-beige-200 bg-paper p-8">
+          <h3 class="font-serif text-xl">その他</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+            上記に該当しないご連絡も、まずはお気軽にご相談ください。
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

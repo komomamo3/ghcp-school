@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+
+const locale = 'ja' as const;
+const pathname = '/education/';
+
+const years = [
+  {
+    year: '1年次',
+    label: 'Foundations',
+    body: 'プログラミング、デザイン、英語、教養の基礎を横断的に学び、自分の関心の輪郭を描く。',
+  },
+  {
+    year: '2年次',
+    label: 'Skills',
+    body: '専門領域に踏み込み、ソフトウェア・ハードウェア・デザインの実装スキルを磨く。',
+  },
+  {
+    year: '3年次',
+    label: 'Projects',
+    body: 'チームで課題に取り組み、プロトタイプから検証までを反復するプロジェクト学習。',
+  },
+  {
+    year: '4年次',
+    label: 'Practice',
+    body: '企業・地域との協働プロジェクト、長期インターンや留学など、社会に出る学びを選び取る。',
+  },
+  {
+    year: '5年次',
+    label: 'Launch',
+    body: '卒業研究・起業準備など、5年間の学びを「自分の事業/作品/問い」として世に出す。',
+  },
+];
+---
+
+<BaseLayout pathname={pathname} locale={locale} title="教育">
+  <section class="container-wide pt-28 pb-16">
+    <span class="eyebrow">Education</span>
+    <h1 class="mt-4 font-serif text-4xl leading-tight tracking-tightj text-ink md:text-5xl">
+      テクノロジー × デザイン × 起業家精神
+    </h1>
+    <p class="mt-6 max-w-prose text-base leading-loose text-ink-soft">
+      5年間で「モノをつくる力」と「コトを起こす力」を身につけるための、
+      プロジェクト中心のカリキュラムを編成しています。
+      技術・デザイン・起業家精神の3領域を行き来しながら、
+      自分の問いを社会に届けるまでを伴走します。
+    </p>
+  </section>
+
+  <section class="container-wide py-16">
+    <SectionTitle eyebrow="Curriculum" title="5年間の流れ" />
+    <ol class="mt-12 divide-y divide-beige-200 border-y border-beige-200">
+      {years.map((y) => (
+        <li class="grid gap-3 py-8 md:grid-cols-12 md:items-baseline">
+          <div class="md:col-span-2">
+            <p class="font-serif text-2xl text-ink">{y.year}</p>
+            <p class="font-en text-xs uppercase tracking-wider2 text-ink-mute">{y.label}</p>
+          </div>
+          <p class="md:col-span-9 md:col-start-4 text-ink-soft leading-relaxed">{y.body}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="bg-beige-50">
+    <div class="container-wide py-20">
+      <SectionTitle eyebrow="Approach" title="特徴的な学び方" />
+      <div class="mt-10 grid gap-8 md:grid-cols-2">
+        <div class="border border-beige-200 bg-paper p-8">
+          <h3 class="font-serif text-xl">プロジェクト中心</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+            実在する課題やテーマに対し、チームで仮説検証を繰り返しながら成果物を作り上げる学び方を重視。
+          </p>
+        </div>
+        <div class="border border-beige-200 bg-paper p-8">
+          <h3 class="font-serif text-xl">地域とつながる</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+            神山町の人・産業・自然を「教材」とし、机上だけでは得られない学びの場を日常に組み込んでいます。
+          </p>
+        </div>
+        <div class="border border-beige-200 bg-paper p-8">
+          <h3 class="font-serif text-xl">越境する教員陣</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+            研究者だけでなく、起業家・デザイナー・エンジニアなど、現場の実務家が教員として関わります。
+          </p>
+        </div>
+        <div class="border border-beige-200 bg-paper p-8">
+          <h3 class="font-serif text-xl">寮を含む全寮制の暮らし</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+            生活そのものが学びの一部。寮での協働や対話が、学業と並ぶもう一つの軸になります。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

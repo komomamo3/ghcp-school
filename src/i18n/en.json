@@ -1,0 +1,29 @@
+{
+  "siteName": "Kamiyama Marugoto College of Technology",
+  "siteShort": "Kamiyama College",
+  "tagline": "Technology × Design × Entrepreneurship — learn deep in the mountains of Tokushima.",
+  "description": "An unofficial introduction to Kamiyama Marugoto College of Technology, a private KOSEN located in Kamiyama, Tokushima, Japan.",
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "education": "Education",
+    "campus": "Campus",
+    "access": "Access",
+    "contact": "Contact"
+  },
+  "cta": {
+    "explore": "Explore the school",
+    "contact": "Contact",
+    "viewMore": "Learn more",
+    "backHome": "Back to home"
+  },
+  "footer": {
+    "rights": "This site is an unofficial introduction page, not operated by the school.",
+    "officialLabel": "Official site",
+    "imageCredit": "Image credit: Unsplash"
+  },
+  "lang": {
+    "switch": "JA",
+    "current": "English"
+  }
+}

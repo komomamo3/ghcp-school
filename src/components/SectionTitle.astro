@@ -1,0 +1,16 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  align?: 'left' | 'center';
+}
+const { eyebrow, title, align = 'left' } = Astro.props;
+---
+
+<header class:list={['flex flex-col gap-3', align === 'center' && 'items-center text-center']}>
+  {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+  <h2 class="font-serif text-3xl leading-tight tracking-tightj text-ink md:text-4xl">
+    {title}
+  </h2>
+  <span class="mt-1 inline-block h-px w-12 bg-ink/40"></span>
+</header>

@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+
+const locale = 'en' as const;
+const pathname = '/en/access/';
+---
+
+<BaseLayout pathname={pathname} locale={locale} title="Access">
+  <section class="container-wide pt-28 pb-12">
+    <span class="eyebrow">Access</span>
+    <h1 class="mt-4 font-serif text-4xl leading-tight tracking-tightj text-ink md:text-5xl">
+      Getting to Kamiyama.
+    </h1>
+    <p class="mt-6 max-w-prose text-base leading-loose text-ink-soft">
+      Kamiyama sits in central Tokushima, west of Tokushima City. Plan for roughly 50–60 minutes
+      by car or bus from Tokushima Awaodori Airport or JR Tokushima Station.
+    </p>
+  </section>
+
+  <section class="container-wide py-12">
+    <SectionTitle eyebrow="Map" title="Where we are" />
+    <div class="mt-10 grid gap-10 md:grid-cols-12">
+      <div class="md:col-span-7">
+        <MapEmbed title="Map around Kamiyama town" />
+      </div>
+      <dl class="md:col-span-5 space-y-6">
+        <div class="border-t border-beige-200 pt-4">
+          <dt class="text-xs uppercase tracking-wider2 text-ink-mute">Location</dt>
+          <dd class="mt-1 text-base text-ink">Kamiyama, Myozai, Tokushima, Japan</dd>
+        </div>
+        <div class="border-t border-beige-200 pt-4">
+          <dt class="text-xs uppercase tracking-wider2 text-ink-mute">By air</dt>
+          <dd class="mt-1 text-sm text-ink-soft">~60 min by car from Tokushima Awaodori Airport</dd>
+        </div>
+        <div class="border-t border-beige-200 pt-4">
+          <dt class="text-xs uppercase tracking-wider2 text-ink-mute">By train + bus</dt>
+          <dd class="mt-1 text-sm text-ink-soft">~60 min by local bus from JR Tokushima Station</dd>
+        </div>
+        <div class="border-t border-beige-200 pt-4">
+          <dt class="text-xs uppercase tracking-wider2 text-ink-mute">By car</dt>
+          <dd class="mt-1 text-sm text-ink-soft">~45 min from Tokushima IC via local roads</dd>
+        </div>
+        <p class="pt-4 text-xs text-ink-mute">
+          Times are approximate. Please confirm the exact address on the
+          <a class="link-underline" href="https://kamiyama.ac.jp/" target="_blank" rel="noopener noreferrer">official site</a>.
+        </p>
+      </dl>
+    </div>
+  </section>
+</BaseLayout>
