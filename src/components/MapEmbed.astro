@@ -28,7 +28,7 @@ const params = new URLSearchParams({ bbox: safeBbox, layer: 'mapnik', marker: sa
 const src = `https://www.openstreetmap.org/export/embed.html?${params.toString()}`;
 ---
 
-<div class="overflow-hidden border border-beige-200">
+<div class="overflow-hidden rounded-lg border border-outline-variant">
   <iframe
     src={src}
     title={title}
@@ -37,6 +37,6 @@ const src = `https://www.openstreetmap.org/export/embed.html?${params.toString()
     referrerpolicy="no-referrer-when-downgrade"
   ></iframe>
 </div>
-<p class="mt-2 text-xs text-ink-mute">
+<p class="mt-2 text-xs text-on-surface-variant">
   &copy; <a class="link-underline" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors
 </p>

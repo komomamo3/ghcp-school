@@ -30,14 +30,14 @@ function isActive(href: string) {
 }
 ---
 
-<header class="sticky top-0 z-30 border-b border-beige-200 bg-paper/85 backdrop-blur">
+<header class="sticky top-0 z-30 border-b border-outline-variant bg-surface-container-lowest/85 backdrop-blur">
   <div class="container-wide flex h-16 items-center justify-between">
     <a
       href={withBase('/')}
-      class="font-serif text-base tracking-tightj text-ink hover:text-accent-dark transition-colors"
+      class="font-serif text-base tracking-tight text-on-surface hover:text-secondary transition-colors"
     >
       <span class="block leading-none">{t.siteShort}</span>
-      <span class="mt-0.5 block font-en text-[10px] uppercase tracking-wider2 text-ink-mute">
+      <span class="mt-0.5 block font-sans text-[10px] uppercase tracking-[0.05em] text-on-surface-variant">
         Kamiyama College
       </span>
     </a>
@@ -49,7 +49,7 @@ function isActive(href: string) {
             href={withBase(item.href)}
             class:list={[
               'link-underline transition-colors',
-              isActive(item.href) ? 'text-ink' : 'text-ink-soft hover:text-ink',
+              isActive(item.href) ? 'text-on-surface' : 'text-on-surface-variant hover:text-on-surface',
             ]}
           >
             {t.nav[item.key]}
@@ -65,7 +65,7 @@ function isActive(href: string) {
   </div>
 
   <!-- mobile nav -->
-  <nav class="md:hidden border-t border-beige-200 bg-paper">
+  <nav class="md:hidden border-t border-outline-variant bg-surface-container-lowest">
     <ul class="container-wide flex flex-wrap gap-x-5 gap-y-2 py-3 text-sm">
       {
         navItems.map((item) => (
@@ -74,7 +74,7 @@ function isActive(href: string) {
               href={withBase(item.href)}
               class:list={[
                 'transition-colors',
-                isActive(item.href) ? 'text-ink' : 'text-ink-mute hover:text-ink',
+                isActive(item.href) ? 'text-on-surface' : 'text-on-surface-variant hover:text-on-surface',
               ]}
             >
               {t.nav[item.key]}

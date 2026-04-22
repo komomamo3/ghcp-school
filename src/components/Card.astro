@@ -17,12 +17,12 @@ const Tag = href ? 'a' : 'div';
 <Tag
   href={href}
   class:list={[
-    'group block border border-beige-200 bg-paper transition-colors',
-    href && 'hover:border-ink',
+    'group block rounded border border-outline-variant bg-surface-container-lowest shadow-subtle transition-shadow',
+    href && 'hover:shadow-active',
   ]}
 >
   {image && (
-    <div class="aspect-[4/3] overflow-hidden bg-beige-100">
+    <div class="aspect-[4/3] overflow-hidden rounded-t bg-surface-container-low">
       <img
         src={image}
         alt={imageAlt}
@@ -34,10 +34,10 @@ const Tag = href ? 'a' : 'div';
   )}
   <div class="flex flex-col gap-3 p-6">
     {eyebrow && <span class="eyebrow">{eyebrow}</span>}
-    <h3 class="font-serif text-xl leading-snug text-ink">{title}</h3>
-    {body && <p class="text-sm leading-relaxed text-ink-soft">{body}</p>}
+    <h3 class="font-serif text-xl leading-snug text-on-surface">{title}</h3>
+    {body && <p class="text-sm leading-relaxed text-on-surface-variant">{body}</p>}
     {href && (
-      <span class="mt-2 font-en text-xs uppercase tracking-wider2 text-ink-mute group-hover:text-ink">
+      <span class="mt-2 font-sans text-xs uppercase tracking-[0.05em] text-on-surface-variant group-hover:text-on-surface">
         {linkLabel}
       </span>
     )}

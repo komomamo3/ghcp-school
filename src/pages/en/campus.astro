@@ -18,10 +18,10 @@ const photos = [
 <BaseLayout pathname={pathname} locale={locale} title="Campus">
   <section class="container-wide pt-28 pb-12">
     <span class="eyebrow">Campus</span>
-    <h1 class="mt-4 font-serif text-4xl leading-tight tracking-tightj text-ink md:text-5xl">
+    <h1 class="mt-4 font-serif text-4xl leading-tight tracking-tight text-on-surface md:text-5xl">
       The whole town is our campus.
     </h1>
-    <p class="mt-6 max-w-prose text-base leading-loose text-ink-soft">
+    <p class="mt-6 max-w-prose text-base leading-loose text-on-surface-variant">
       Kamiyama is a town of about 5,000 people in Tokushima — a unique place where art and IT
       coexist with the mountains. The school buildings, dorms, town facilities and nature itself
       shape five years of learning.
@@ -32,36 +32,36 @@ const photos = [
     <SectionTitle eyebrow="Gallery" title="Fragments of a place" />
     <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {photos.map((p) => (
-        <figure class="group overflow-hidden border border-beige-200">
+        <figure class="group overflow-hidden border border-outline-variant">
           <div class="aspect-[4/3] overflow-hidden bg-beige-100">
             <img src={p.src} alt={p.alt} loading="lazy" decoding="async" class="h-full w-full object-cover grayscale-[25%] transition-transform duration-700 group-hover:scale-[1.04]" />
           </div>
-          <figcaption class="px-4 py-3 text-xs text-ink-mute">{p.caption}</figcaption>
+          <figcaption class="px-4 py-3 text-xs text-on-surface-variant">{p.caption}</figcaption>
         </figure>
       ))}
     </div>
-    <p class="mt-6 text-xs text-ink-mute">Images are illustrative — courtesy of Unsplash photographers.</p>
+    <p class="mt-6 text-xs text-on-surface-variant">Images are illustrative — courtesy of Unsplash photographers.</p>
   </section>
 
   <section class="bg-beige-50">
     <div class="container-wide py-20">
       <SectionTitle eyebrow="Facilities" title="Main facilities" />
       <ul class="mt-10 grid gap-6 md:grid-cols-2">
-        <li class="border border-beige-200 bg-paper p-8">
+        <li class="border border-outline-variant bg-surface-container-lowest p-8">
           <h3 class="font-serif text-xl">Studios &amp; classrooms</h3>
-          <p class="mt-3 text-sm leading-relaxed text-ink-soft">Open spaces for making, prototyping and dialogue.</p>
+          <p class="mt-3 text-sm leading-relaxed text-on-surface-variant">Open spaces for making, prototyping and dialogue.</p>
         </li>
-        <li class="border border-beige-200 bg-paper p-8">
+        <li class="border border-outline-variant bg-surface-container-lowest p-8">
           <h3 class="font-serif text-xl">Dormitory</h3>
-          <p class="mt-3 text-sm leading-relaxed text-ink-soft">A residential life that becomes a second classroom.</p>
+          <p class="mt-3 text-sm leading-relaxed text-on-surface-variant">A residential life that becomes a second classroom.</p>
         </li>
-        <li class="border border-beige-200 bg-paper p-8">
+        <li class="border border-outline-variant bg-surface-container-lowest p-8">
           <h3 class="font-serif text-xl">Dining &amp; cafeteria</h3>
-          <p class="mt-3 text-sm leading-relaxed text-ink-soft">Local ingredients, conversations born around the table.</p>
+          <p class="mt-3 text-sm leading-relaxed text-on-surface-variant">Local ingredients, conversations born around the table.</p>
         </li>
-        <li class="border border-beige-200 bg-paper p-8">
+        <li class="border border-outline-variant bg-surface-container-lowest p-8">
           <h3 class="font-serif text-xl">Town facilities &amp; satellite offices</h3>
-          <p class="mt-3 text-sm leading-relaxed text-ink-soft">Working with offices and workshops scattered across town.</p>
+          <p class="mt-3 text-sm leading-relaxed text-on-surface-variant">Working with offices and workshops scattered across town.</p>
         </li>
       </ul>
     </div>
