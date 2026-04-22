@@ -30,19 +30,19 @@ const {
       loading={imageLoading}
       decoding="async"
     />
-    <div class="absolute inset-0 bg-gradient-to-b from-paper/30 via-paper/10 to-paper"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-surface/20 via-surface/10 to-surface"></div>
   </div>
 
   <div class="container-wide flex min-h-[78vh] flex-col justify-end pb-20 pt-32 md:min-h-[88vh]">
     <div class="max-w-3xl fade-up">
-      {eyebrow && <p class="eyebrow text-paper/90 mix-blend-difference">{eyebrow}</p>}
+      {eyebrow && <p class="eyebrow text-on-surface-variant">{eyebrow}</p>}
       <h1
-        class="mt-4 font-serif text-4xl leading-[1.15] tracking-tightj text-ink md:text-6xl"
+        class="mt-4 font-serif text-4xl leading-[1.15] tracking-tight text-on-surface md:text-6xl"
       >
         {title}
       </h1>
       {lead && (
-        <p class="mt-6 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
+        <p class="mt-6 max-w-2xl text-base leading-relaxed text-on-surface-variant md:text-lg">
           {lead}
         </p>
       )}

@@ -37,10 +37,10 @@ const years = [
 <BaseLayout pathname={pathname} locale={locale} title="教育">
   <section class="container-wide pt-28 pb-16">
     <span class="eyebrow">Education</span>
-    <h1 class="mt-4 font-serif text-4xl leading-tight tracking-tightj text-ink md:text-5xl">
+    <h1 class="mt-4 font-serif text-4xl leading-tight tracking-tight text-on-surface md:text-5xl">
       テクノロジー × デザイン × 起業家精神
     </h1>
-    <p class="mt-6 max-w-prose text-base leading-loose text-ink-soft">
+    <p class="mt-6 max-w-prose text-base leading-loose text-on-surface-variant">
       5年間で「モノをつくる力」と「コトを起こす力」を身につけるための、
       プロジェクト中心のカリキュラムを編成しています。
       技術・デザイン・起業家精神の3領域を行き来しながら、
@@ -50,14 +50,14 @@ const years = [
 
   <section class="container-wide py-16">
     <SectionTitle eyebrow="Curriculum" title="5年間の流れ" />
-    <ol class="mt-12 divide-y divide-beige-200 border-y border-beige-200">
+    <ol class="mt-12 divide-y divide-beige-200 border-y border-outline-variant">
       {years.map((y) => (
         <li class="grid gap-3 py-8 md:grid-cols-12 md:items-baseline">
           <div class="md:col-span-2">
-            <p class="font-serif text-2xl text-ink">{y.year}</p>
-            <p class="font-en text-xs uppercase tracking-wider2 text-ink-mute">{y.label}</p>
+            <p class="font-serif text-2xl text-on-surface">{y.year}</p>
+            <p class="font-sans text-xs uppercase tracking-[0.05em] text-on-surface-variant">{y.label}</p>
           </div>
-          <p class="md:col-span-9 md:col-start-4 text-ink-soft leading-relaxed">{y.body}</p>
+          <p class="md:col-span-9 md:col-start-4 text-on-surface-variant leading-relaxed">{y.body}</p>
         </li>
       ))}
     </ol>
@@ -67,27 +67,27 @@ const years = [
     <div class="container-wide py-20">
       <SectionTitle eyebrow="Approach" title="特徴的な学び方" />
       <div class="mt-10 grid gap-8 md:grid-cols-2">
-        <div class="border border-beige-200 bg-paper p-8">
+        <div class="border border-outline-variant bg-surface-container-lowest p-8">
           <h3 class="font-serif text-xl">プロジェクト中心</h3>
-          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+          <p class="mt-3 text-sm leading-relaxed text-on-surface-variant">
             実在する課題やテーマに対し、チームで仮説検証を繰り返しながら成果物を作り上げる学び方を重視。
           </p>
         </div>
-        <div class="border border-beige-200 bg-paper p-8">
+        <div class="border border-outline-variant bg-surface-container-lowest p-8">
           <h3 class="font-serif text-xl">地域とつながる</h3>
-          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+          <p class="mt-3 text-sm leading-relaxed text-on-surface-variant">
             神山町の人・産業・自然を「教材」とし、机上だけでは得られない学びの場を日常に組み込んでいます。
           </p>
         </div>
-        <div class="border border-beige-200 bg-paper p-8">
+        <div class="border border-outline-variant bg-surface-container-lowest p-8">
           <h3 class="font-serif text-xl">越境する教員陣</h3>
-          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+          <p class="mt-3 text-sm leading-relaxed text-on-surface-variant">
             研究者だけでなく、起業家・デザイナー・エンジニアなど、現場の実務家が教員として関わります。
           </p>
         </div>
-        <div class="border border-beige-200 bg-paper p-8">
+        <div class="border border-outline-variant bg-surface-container-lowest p-8">
           <h3 class="font-serif text-xl">寮を含む全寮制の暮らし</h3>
-          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+          <p class="mt-3 text-sm leading-relaxed text-on-surface-variant">
             生活そのものが学びの一部。寮での協働や対話が、学業と並ぶもう一つの軸になります。
           </p>
         </div>

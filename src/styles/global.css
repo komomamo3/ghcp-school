@@ -6,17 +6,16 @@
   :root { color-scheme: light; }
   html {
     font-family: theme('fontFamily.sans');
-    color: theme('colors.ink.DEFAULT');
-    background-color: theme('colors.paper');
+    color: theme('colors.on-surface');
+    background-color: theme('colors.surface');
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
   body {
-    @apply bg-paper text-ink;
-    font-feature-settings: 'palt' 1, 'pkna' 1;
+    @apply bg-surface text-on-surface;
   }
-  ::selection { background-color: theme('colors.beige.200'); color: theme('colors.ink.DEFAULT'); }
-  h1, h2, h3, h4 { @apply font-serif text-ink; font-feature-settings: 'palt' 1; }
+  ::selection { background-color: theme('colors.secondary.container'); color: theme('colors.on-surface'); }
+  h1, h2, h3, h4 { @apply font-serif text-on-surface; }
   .fade-up { animation: fadeUp 0.8s ease both; }
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(8px); }
@@ -25,9 +24,9 @@
 }
 
 @layer components {
-  .container-wide { @apply container; max-width: 1200px; }
-  .hairline { @apply border-t border-beige-200; }
-  .eyebrow { @apply font-en text-xs uppercase tracking-wider2 text-ink-mute; }
+  .container-wide { @apply container; max-width: 1280px; }
+  .hairline { @apply border-t border-outline-variant; }
+  .eyebrow { @apply font-sans text-label-sm uppercase tracking-[0.05em] text-on-surface-variant; }
 
   .link-underline { @apply relative inline-block; }
   .link-underline::after {
@@ -36,7 +35,21 @@
   }
   .link-underline:hover::after { @apply scale-x-100; }
 
+  /* Primary (Navy/Black) button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded bg-primary text-on-primary px-6 py-3 text-label-sm uppercase tracking-[0.05em] transition-shadow hover:shadow-active;
+  }
+  /* Secondary (Gold) button for Apply / CTA */
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded bg-secondary text-on-secondary px-6 py-3 text-label-sm uppercase tracking-[0.05em] transition-shadow hover:shadow-active;
+  }
+  /* Ghost button */
   .btn-ghost {
-    @apply inline-flex items-center gap-2 border border-ink/80 px-5 py-2.5 text-sm tracking-widej transition-colors hover:bg-ink hover:text-paper;
+    @apply inline-flex items-center gap-2 rounded border border-on-surface/60 px-5 py-2.5 text-label-sm uppercase tracking-[0.05em] transition-colors hover:bg-on-surface hover:text-surface;
+  }
+
+  /* Card base */
+  .card {
+    @apply rounded bg-surface-container-lowest shadow-subtle transition-shadow hover:shadow-active;
   }
 }
